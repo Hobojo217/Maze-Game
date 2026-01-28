@@ -31,7 +31,6 @@ function pickRandomUnsolvedMaze() {
 }
 
 function loadMaze() {
-  // Generate a fresh maze every time
   currentMaze = createGeneratedMaze(21, 21);
 
   player = { ...currentMaze.start };
@@ -42,10 +41,10 @@ function loadMaze() {
 
   infoEl.textContent = `New Maze — ${currentMaze.width}×${currentMaze.height}`;
   statusEl.textContent = "Use arrow keys or WASD to move.";
-  nextBtn.disabled = true;
 
   drawMaze();
 }
+
 
 
   player = { ...currentMaze.start };
@@ -123,9 +122,9 @@ function handleMove(dx, dy) {
 }
 
 function onMazeSolved() {
-  statusEl.textContent = "Maze solved! Generating next maze...";
-  nextBtn.disabled = false;
+  statusEl.textContent = "Maze solved!";
 }
+
 
 
 document.addEventListener("keydown", (e) => {
