@@ -1,6 +1,6 @@
-// Generates a perfect maze using DFS backtracking
+// mazeGenerator.js
+
 function generateMaze(width, height) {
-  // Maze grid: 1 = wall, 0 = path
   const maze = Array.from({ length: height }, () =>
     Array.from({ length: width }, () => 1)
   );
@@ -39,21 +39,18 @@ function generateMaze(width, height) {
     }
   }
 
-  // Start carving from (1,1)
   maze[1][1] = 0;
   carve(1, 1);
 
   return maze;
 }
 
-// Converts numeric maze to your string format
 function mazeToStringGrid(maze) {
   return maze.map(row =>
     row.map(cell => (cell === 1 ? "#" : ".")).join("")
   );
 }
 
-// Creates a full maze object compatible with your MAZES array
 function createMazeObject(id, width, height) {
   const raw = generateMaze(width, height);
   const grid = mazeToStringGrid(raw);
@@ -68,5 +65,4 @@ function createMazeObject(id, width, height) {
   };
 }
 
-// Example: generate and log a 21×21 maze
-// console.log(createMazeObject(99, 21, 21));
+module.exports = { createMazeObject };
