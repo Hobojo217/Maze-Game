@@ -123,14 +123,10 @@ function handleMove(dx, dy) {
 }
 
 function onMazeSolved() {
-  statusEl.textContent = "Maze solved! 🎉";
-  const solved = getSolvedMazeIds();
-  if (!solved.includes(currentMaze.id)) {
-    solved.push(currentMaze.id);
-    setSolvedMazeIds(solved);
-  }
+  statusEl.textContent = "Maze solved! Generating next maze...";
   nextBtn.disabled = false;
 }
+
 
 document.addEventListener("keydown", (e) => {
   const key = e.key.toLowerCase();
