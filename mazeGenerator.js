@@ -1,5 +1,3 @@
-// mazeGenerator.js
-
 function generateMaze(width, height) {
   const maze = Array.from({ length: height }, () =>
     Array.from({ length: width }, () => 1)
@@ -51,12 +49,11 @@ function mazeToStringGrid(maze) {
   );
 }
 
-function createMazeObject(id, width, height) {
+function createGeneratedMaze(width = 21, height = 21) {
   const raw = generateMaze(width, height);
   const grid = mazeToStringGrid(raw);
 
   return {
-    id,
     width,
     height,
     start: { x: 1, y: 1 },
@@ -64,5 +61,3 @@ function createMazeObject(id, width, height) {
     grid
   };
 }
-
-module.exports = { createMazeObject };
