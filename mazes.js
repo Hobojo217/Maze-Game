@@ -1,4 +1,4 @@
-// You can expand this array with many mazes
+// mazes.js
 const MAZES = [
   {
     id: 1,
@@ -19,5 +19,6 @@ const MAZES = [
       "##########"
     ]
   }
-  // add more mazes here
 ];
+
+module.exports = MAZES;
