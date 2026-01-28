@@ -31,13 +31,22 @@ function pickRandomUnsolvedMaze() {
 }
 
 function loadMaze() {
-  currentMaze = pickRandomUnsolvedMaze();
-  if (!currentMaze) {
-    statusEl.textContent = "You’ve solved all available mazes!";
-    infoEl.textContent = "Add more mazes to mazes.js to continue.";
-    nextBtn.disabled = true;
-    return;
-  }
+  // Generate a fresh maze every time
+  currentMaze = createGeneratedMaze(21, 21);
+
+  player = { ...currentMaze.start };
+  cellSize = Math.min(
+    canvas.width / currentMaze.width,
+    canvas.height / currentMaze.height
+  );
+
+  infoEl.textContent = `New Maze — ${currentMaze.width}×${currentMaze.height}`;
+  statusEl.textContent = "Use arrow keys or WASD to move.";
+  nextBtn.disabled = true;
+
+  drawMaze();
+}
+
 
   player = { ...currentMaze.start };
   cellSize = Math.min(
