@@ -1,0 +1,87 @@
+:root {
+  --bg: #0b0c10;
+  --panel: #1f2833;
+  --accent: #66fcf1;
+  --accent-soft: #45a29e;
+  --text: #c5c6c7;
+  --wall: #1f2833;
+  --path: #0b0c10;
+  --player: #66fcf1;
+  --exit: #ffb347;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #1f2833 0, #0b0c10 50%, #000 100%);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+#app {
+  background: rgba(15, 20, 30, 0.9);
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(16px);
+}
+
+header {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+
+#maze-info {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: var(--accent-soft);
+}
+
+#maze-canvas {
+  display: block;
+  border-radius: 12px;
+  background: #050608;
+  margin: 12px auto;
+}
+
+#controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 8px;
+  font-size: 0.9rem;
+}
+
+button {
+  background: var(--accent-soft);
+  color: #0b0c10;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.1s;
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+button:not(:disabled):hover {
+  background: var(--accent);
+  transform: translateY(-1px);
+}
